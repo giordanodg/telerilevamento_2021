@@ -5,6 +5,8 @@
 # In questo caso io utilizzando il sistema operativo Mac, quindi il percorso sarà
 # setwd("/Users/Giordano/Desktop/lab/")
 
+ setwd("/Users/Giordano/Desktop/lab/")
+
 # Creiamo un oggetto
 # Per creare un oggetto all'interno del quale inserire un file o una funzione
 # nomedelloggetto <- funzionechevoglioallinternodeloggetto
