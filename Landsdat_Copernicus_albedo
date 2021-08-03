@@ -23,5 +23,11 @@ cl <- colorRampPalette(c('light blue','green','red','yellow'))(100)
 
 plot(albedo, col=cl)
 
+#se ho un file troppo pesante, posso diminuire la grandezza del file ricampionando i pixel,raggruppandoli
+#con la funzione "fact=x"
+
+Albedoresampling<-albedo, fact=10
+
+
 ##
  
