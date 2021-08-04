@@ -1,0 +1,22 @@
+# R_code_multivariate_analysis.r
+
+library(raster) 
+library(RStoolbox)
+
+setwd("/Users/Giordano/lab/")
+
+p224r63_2011 <- brick("p224r63_2011_masked.grd") 
+
+plot(p224r63_2011)
+
+#plottiamo la nostra banda uno contro i valori della banda due e le leghiamo con il dollaro,
+#imposto il colore, pch sono i simboli e imposto il pallino che corrisponde al 19 e aumento la dimensione 
+#con la funzione cex
+
+plot(p224r63_2011$B1_sre, p224r63_2011$B2_sre, col="red", pch=19, cex=2)
+
+#avremmo un diagramma x,y con punti rossi
+#utilizzando la funzione pairs function,
+#ci correla le bande e ci indica quale banda si correla in maniera migliore
+
+pairs(p224r63_2011)
