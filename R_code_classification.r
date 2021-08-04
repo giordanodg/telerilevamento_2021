@@ -40,6 +40,30 @@ sun<-brick("sun.png")
 # Unsupervised classification
 sunc <- unsuperClass(sun, nClasses=3)
 plot(sunc$map)
- 
 
+#rimprendo il mio codice, per classificare l'immagine sul grand Canyon
+#richiamo le funzioni e setto la mia working directory
 
+library(raster)
+library(RStoolbox)
+
+setwd("/Users/Giordano/lab")
+
+gc<-brick("iss022e014078_087_lrg.jpg")
+
+#imposto il filtro RGB, e imposto lo stretching in maniera tale che sia hist
+
+plotRGB(gc, r=1, g=2, b=3, stretch="list")
+plotRGB(gc, r=1, g=2, b=3, stretch="hist")
+
+#creo un modello di classsificazione del grand canyon, dobbiamo legare il modello alla mappa, quindi utiliziamo il simbolo del $
+
+gcc2<-unsuperClass(gc, nClasses=2)
+gcc2
+plot<-(gcc2$map)
+
+#modello con 4 classi 
+
+gcc4<-unsuperClass(gc,nClasses=4)
+gcc4
+plot(gcc4$map)
