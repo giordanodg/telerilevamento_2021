@@ -52,4 +52,6 @@ vi<-spectrialIndices(defor1, green = 3, red = 2, nir = 1)
 
 plot(vi1, col=cl)
 
+#uso la funzione cividis
+
 
