@@ -1,0 +1,100 @@
+#Analisi temporale del Fiume Giallo 
+
+#Seleziono la WorkingDirectory
+
+install.packages(raster)
+install.packages(ggplot)
+library(raster)
+library(ggplot2)
+library(rasterVis)
+
+setwd("/Users/Giordano/lab/yellowriver/")
+
+yl_1989<-raster("yellowriver1989.jpg")
+yl_2020<-raster("yellowriver2020.jpg")
+
+yl_1989
+yl_2020
+
+
+par(mfrow=c(2,2))
+ggtitle(label)
+plot(yl_1989)
+plot(yl_2020)
+
+yellowriver <- list.files(pattern="yellowriver") 
+yellowriver
+
+import <- lapply(yellowriver,raster)
+import
+
+Ys<-stack(import)
+Ys
+ 
+#Per osservare meglio le 2 immagini satellitare, utilizzo una colorRampPalette
+#Change color Yellow River
+
+cl <- colorRampPalette(c("blue","green","grey","red","yellow")) (100)
+
+#Plot dell'immagine associando la colorRampPalette
+par(mfrow=c(2,2))
+
+plot(yl_1989, col=cl)
+plot(yl_2020, col=cl)
+
+#Utilizziamo il plot RGB
+
+plotRGB(yl_1989, r=3, g=2, b=1, stretch="Lin")  
+plotRGB(yl_1989, r=4, g=3, b=2, stretch="Lin")
+plotRGB(yl_1989, r=3, g=4, b=2, stretch="Lin") 
+plotRGB(yl_1989, r=3, g=2, b=4, stretch="Lin")
+
+#non funziona
+
+plotRGB(TGr, 1, 2, 3, stretch="Lin") 
+plotRGB(TGr, 2, 3, 4, stretch="Lin") 
+plotRGB(TGr, 4, 3, 2, stretch="Lin") 
+
+levelplot(Ys)
+
+cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
+levelplot(Ys, col.regions=cl)
+
+levelplot(Ys,col.regions=cl, names.attr=c("1989","2020"))
+
+levelplot(Ys,col.regions=cl, main="Delta variation in time", names.attr=c("1989","2020"))
+
+deltadiff <- yl_2020 - yl_1989
+
+clb <- colorRampPalette(c("blue","white","red"))(100)
+
+levelplot(deltadiff, col.regions=clb)
+
+#Change color 1.
+
+clb_1 <- colorRampPalette(c("green","yellow","blu"))(100)
+
+levelplot(deltadiff, col.regions=clb_1)
+
+
+#Change color 2.
+
+clb_2 <- colorRampPalette(c("pink","green","white"))(100)
+plot(deltadiff, col=clb)
+
+levelplot(deltadiff, col.regions=clb_2)
+
+
+#Change color 3.
+
+clb_3 <- colorRampPalette(c("orange","green","red"))(100)
+plot(deltadiff, col=clb_3)
+
+levelplot(deltadiff, col.regions=clb_3)
+
+##
+
+
+
+
+
