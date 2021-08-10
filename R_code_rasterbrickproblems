@@ -1,0 +1,13 @@
+library(rasterVis)
+
+
+setwd("/Users/Giordano/lab/yellowriver") 
+
+DVI_89 <- brick("yellowriver1989.jpg")
+DVI_20 <- brick("yellowriver2020.jpg")
+
+# b1 = NIR, b2 = red, b3 = green
+
+par(mfrow=c(2,1))
+plotRGB(DVI_89, r=1, g=2, b=3, stretch="lin")
+plotRGB(DVI_20, r=1, g=2, b=3, stretch="lin")
