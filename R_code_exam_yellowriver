@@ -102,11 +102,60 @@ ggRGB(ylb_89, 4, 3, 2, stretch="lin")
 
 ##non funziona
 
+#Yellow_river 79 vs 20
+
+#Analisi temporale del Fiume Giallo 
+
+#Seleziono la WorkingDirectory
+
+install.packages(raster)
+install.packages(ggplot)
+library(raster)
+library(ggplot2)
+library(rasterVis)
+
+setwd("/Users/Giordano/lab/yellowriver/")
+
+yl_1979<-raster("yellowriver1979.jpg")
+yl_2020<-raster("yellowriver2020.jpg")
+
+yl_1979
+yl_2020
+
+
+par(mfrow=c(2,2))
+ggtitle(label)
+plot(yl_1979)
+plot(yl_2020)
+
+cl <- colorRampPalette(c("blue","green","grey","red","yellow")) (100)
+
+#Plot dell'immagine associando la colorRampPalette
+par(mfrow=c(2,2))
+
+plot(yl_1979, col=cl)
+plot(yl_2020, col=cl)
+
+cl <- colorRampPalette(c("blue","light blue","pink","red"))(100)
+levelplot(Ys, col.regions=cl)
+
+levelplot(Ys,col.regions=cl, names.attr=c("1989","2020"))
+
+levelplot(Ys,col.regions=cl, main="Delta variation in time", names.attr=c("1979","2020"))
+
+deltadiff <- yl_2020 - yl_1979
+
+clb <- colorRampPalette(c("blue","white","red"))(100)
+
+levelplot(deltadiff, col.regions=clb)
+
+
 #Percentuals
 
-yl_1989p<−stretch (yl_1989 , minv=0, maxv=255) 
+yl_1989p<−stretch (yl_1979 , minv=0, maxv=255) 
 yl_2020p<−stretch (yl_2020 , minv=0, maxv=255)
 
-plot (yl_1989b, yl_2020b, xlab=”Delta_1989”, ylab=”Delta_2020”, main="Delta_differences_1989_2020")
+plot (yl_1979b, yl_2020b, xlab=”Delta_1979”, ylab=”Delta_2020”, main="Delta_differences_1979_2020")
 
 albine (0, 1, col="blu")
+
