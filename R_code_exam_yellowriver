@@ -92,9 +92,21 @@ plot(deltadiff, col=clb_3)
 
 levelplot(deltadiff, col.regions=clb_3)
 
-##
+##ggplot2
 
+ylb_89 <- brick("yl_1989")
+ylb_20 <- brick("yl_2020")
 
+ggRGB(ylb_89, 3, 2, 1, stretch="lin")
+ggRGB(ylb_89, 4, 3, 2, stretch="lin")
 
+##non funziona
 
+#Percentuals
 
+yl_1989p<−stretch (yl_1989 , minv=0, maxv=255) 
+yl_2020p<−stretch (yl_2020 , minv=0, maxv=255)
+
+plot (yl_1989b, yl_2020b, xlab=”Delta_1989”, ylab=”Delta_2020”, main="Delta_differences_1989_2020")
+
+albine (0, 1, col="blu")
